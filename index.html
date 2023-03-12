@@ -5,8 +5,31 @@
 <title>eta1116个人网站</title>
 </head>
 <body>
-    <a href="https://minecraft.net" target="_blank">访问minecraft的官方网站！</a>
     <h1>这是我的个人网站！</h1>
     <p>欢迎来到这里！</p>
+    <p>一些有趣的功能</p>
+    <p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+<button onclick="getLocation()">点我</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		navigator.geolocation.getCurrentPosition(showPosition);
+	}
+	else
+	{
+		x.innerHTML="该浏览器不支持获取地理位置。";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="纬度: " + position.coords.latitude + 
+	"<br>经度: " + position.coords.longitude;	
+}
+ <a href="https://minecraft.net" target="_blank">访问minecraft的官方网站！</a>
+
 </body>
 </html>
